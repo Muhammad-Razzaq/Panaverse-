@@ -1,4 +1,4 @@
-const promise = new Promise((resolve, reject) => resolve("Start Counting"));
+const promise = new Promise((resolve, reject) => reject("Something went wrong")); // resolve("Great Job")
 
 const counter = (value) => console.log(value);
 
@@ -11,4 +11,4 @@ promise.then((value) => {
 }).then((value) => {
     counter(value);
     return "Three";
-}).then((value) => counter(value));
+}).then((value) => counter(value)).catch((error) => console.log("Error : ", error));
